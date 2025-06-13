@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'sucess' | 'danger';
 
@@ -13,6 +13,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   margin: 0.4rem;
   border-radius: 4px;
 
-  background-color: ${props => props.theme["green-500"]};
+  background-color: ${props => props.theme['green-500']};
   color: ${props => props.theme.white};
 `

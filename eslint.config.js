@@ -1,29 +1,45 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default defineConfig([
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: globals.browser,
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      js,
+      '@typescript-eslint': tseslint.plugin,
+      react: pluginReact,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      '@typescript-eslint/no-empty-interface': 'on', // remover mais tarde
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
+      ...js.configs.recommended.rules,
+      ...tseslint.configs.recommended.rules,
+      ...pluginReact.configs.flat.recommended.rules,
+
+      // Suas regras personalizadas:
+      'react/react-in-jsx-scope': 'off',
+      quotes: ['warn', 'single'],
+      '@typescript-eslint/no-empty-interface': [
+        'error',
+        { allowSingleExtends: true },
       ],
     },
-  }
-);
+  },
+]);
