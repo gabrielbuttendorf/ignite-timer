@@ -40,6 +40,7 @@ export default defineConfig([
         'error',
         { allowSingleExtends: true },
       ],
+      semi: ['warn', 'always'],
     },
   },
 ]);
