@@ -63,7 +63,7 @@ export function Home() {
     return () => {
       clearInterval(interval);
     };
-  }, [activeCycle]); //entender pq precisa de activeCycle como dependencia
+  }, [activeCycle]);
 
   function handleCreateNewCycle(data: NewCycleFormData) {
     const id = String(new Date().getTime());
@@ -96,8 +96,6 @@ export function Home() {
     setActiveCycleId(null);
   }
 
-  console.log(cycles);
-
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0;
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPast : 0;
 
@@ -110,6 +108,8 @@ export function Home() {
   React.useEffect(() => {
     if (activeCycle) {
       document.title = `${minutes}:${seconds}`;
+    } else {
+      document.title = 'Ignite Timer';
     }
   }, [minutes, seconds, activeCycle]);
 
