@@ -1,6 +1,10 @@
+import React from 'react';
 import { HistoryContainer, HistoryList, Status } from './styles';
+import { CyclesContext } from '../../contexts/CyclesContext';
 
 export function History() {
+  const { cycles } = React.useContext(CyclesContext);
+
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
@@ -21,7 +25,7 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <Status statusColor='yellow'>Em andamento</Status>
+                <Status statusColor="yellow">Em andamento</Status>
               </td>
             </tr>
             <tr>
@@ -29,7 +33,7 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <Status statusColor='green'>Concluído</Status>
+                <Status statusColor="green">Concluído</Status>
               </td>
             </tr>
             <tr>
@@ -37,7 +41,7 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <Status statusColor='red'>Interrompido</Status>
+                <Status statusColor="red">Interrompido</Status>
               </td>
             </tr>
             <tr>
@@ -45,7 +49,7 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <Status statusColor='yellow'>Em andamento</Status>
+                <Status statusColor="yellow">Em andamento</Status>
               </td>
             </tr>
             <tr>
@@ -53,7 +57,7 @@ export function History() {
               <td>20 minutos</td>
               <td>Há cerca de 2 meses</td>
               <td>
-                <Status statusColor='green'>Concluído</Status>
+                <Status statusColor="green">Concluído</Status>
               </td>
             </tr>
           </tbody>
