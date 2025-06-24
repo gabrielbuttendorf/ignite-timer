@@ -34,6 +34,8 @@ export default defineConfig([
       ...pluginReact.configs.flat.recommended.rules,
 
       // Suas regras personalizadas:
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
       'react/react-in-jsx-scope': 'off',
       quotes: ['warn', 'single'],
       '@typescript-eslint/no-empty-interface': [
