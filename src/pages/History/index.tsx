@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import { HistoryContainer, HistoryList, Status } from './styles';
-import { CyclesContext } from '../../contexts/CyclesContext';
+// import { CyclesContext } from '../../contexts/CyclesContext';
 
 export function History() {
-  const { cycles } = React.useContext(CyclesContext);
+  // const { cycles } = React.useContext(CyclesContext);
 
   return (
     <HistoryContainer>
